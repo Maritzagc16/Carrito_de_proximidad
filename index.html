@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carrito de Proximidad — Proyecto</title>
+ <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <!-- Fondo gráfico / efecto digital -->
+  <div class="digital-bg"></div>
+
+  <!-- Pantalla de bienvenida (splash) -->
+  <div id="splash" class="splash">
+    <div class="splash-inner">
+      <div class="spinner">🚗</div>
+      <h1>Bienvenido</h1>
+      <p class="tag">Proyecto — Carrito de Proximidad</p>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div id="app" class="app" aria-hidden="true">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <h1>Carrito de Proximidad</h1>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn" onclick="goHome()">Inicio</button>
+        <button class="nav-btn" onclick="showSection('materiales')">Materiales utilizados</button>
+        <button class="nav-btn" onclick="showSection('luces')">Luces intermitentes</button>
+        <button class="nav-btn" onclick="showSection('programacion')">Programación</button>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Página principal / menú -->
+      <section id="home" class="panel active">
+        <div class="hero">
+          <h2>Explora las secciones</h2>
+          <p>Selecciona una sección para ver toda la información del proyecto.</p>
+          <div class="menu-cards">
+            <div class="card" onclick="showSection('materiales')">
+              <h3>🔧 Materiales utilizados</h3>
+              <p>Listado y descripción de cada componente principal.</p>
+            </div>
+            <div class="card" onclick="showSection('luces')">
+              <h3>💡 Materiales para luces intermitentes</h3>
+              <p>Circuito y componentes para las luces de señalización.</p>
+            </div>
+            <div class="card" onclick="showSection('programacion')">
+              <h3>💻 Programación</h3>
+              <p>Código Arduino, explicaciones y conceptos.</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="overview">
+          <h3>Resumen del proyecto</h3>
+          <p>
+            Este proyecto consiste en un <strong>carrito de proximidad</strong> controlado por un Arduino Uno.
+            El sistema detecta objetos mediante un sensor ultrasónico y actúa sobre los motores (vía puente H L293D).
+            Además incorpora un circuito para <em>luces intermitentes</em> (indicadores) y código para manejar la lógica de detección y respuesta.
+          </p>
+        </section>
+      </section>
+
+      <!-- Materiales utilizados -->
+     <!-- Materiales utilizados -->
+<section id="materiales" class="panel">
+  <h2>🔧 Materiales utilizados</h2>
+
+  <div class="details">
+    <h3>Explicaciones detalladas</h3>
+
+    <div class="caja">
+      <h4>Arduino Uno</h4>
+      <img src="ArduinoUno.png" alt="Arduino Uno">
+      <p>
+        Es una placa de microcontrolador de código abierto usada para crear proyectos interactivos.
+        Conecta sensores al mundo físico y ejecuta el software que controla actuadores (motores, LEDs, etc.).
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Sensor ultrasónico</h4>
+      <img src="SensorUltrasonico.png" alt="Sensor ultrasónico HC-SR04">
+      <p>
+        Detecta objetos midiendo el tiempo que tarda un pulso sonoro en ir y volver. Útil como detector de proximidad,
+        sin partes mecánicas en contacto.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Puente H L293D</h4>
+      <img src="PuenteHL293D.png" alt="Puente H L293D">
+      <p>
+        Permite controlar velocidad y dirección de dos motores DC. Es un controlador dual que soporta cargas inductivas.
+        Interfaz sencilla con Arduino: pines de control (IN1..4) y pines de suministro para motores.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Motor de 9V con engrane</h4>
+      <img src="Motorde9V.png" alt="Motor DC de 9V con engranaje">
+      <p>
+        Convierte energía eléctrica en rotación; el engranaje disminuye velocidad para aumentar torque,
+        ideal para mover llantas y vencer fricción/cargas del carrito.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Batería de 9V</h4>
+      <img src="Bateria9v.png" alt="Batería de 9V">
+      <p>
+        Fuente compacta para alimentar motores o circuito; cuidado con la corriente y duración al usar motores.
+        Considera usar baterías recargables o pack Li-ion para mayor capacidad si haces pruebas largas.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Cables Dupont</h4>
+      <img src="Cableado.png" alt="Cables Dupont">
+      <p>
+        Útiles para prototipos y conexión a placa de pruebas. Soportan típicamente voltajes bajos (3.3–5 V en uso),
+        y corriente limitada (recomendado &lt;1 A por cable en prototipado).
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Base de acrílico</h4>
+      <img src="Basedeacrilico.png" alt="Base de acrílico para montar el circuito">
+      <p>
+        Plataforma rígida, ligera y fácil de perforar para sujetar componentes (motores, Arduino, portabaterías).
+      </p>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
+</section>
+
+<!-- Luces intermitentes -->
+<section id="luces" class="panel">
+  <h2>💡 Materiales para luces intermitentes</h2>
+
+
+  <div class="details">
+    <h3>Descripción y función del circuito</h3>
+    <p>
+      El circuito de intermitencia usa transistores como conmutadores para encender y apagar grupos de LEDs.
+      Los condensadores y resistencias configuran tiempos (RC) o ayudan a filtrar rizado. Este circuito puede ser
+      simple (multivibrador astable) o controlado desde Arduino para mayor precisión y sincronización con la detección.
+    </p>
+
+    <div class="caja">
+      <h4>LEDs</h4>
+      <img src="LED.png" alt="LEDs indicadores">
+      <p>
+        Diodos emisores de luz eficientes; se usan como indicadores. Siempre conectar con resistencias limitadoras (ej. 220 Ω).
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Condensadores</h4>
+      <img src="Condensadores.png" alt="Condensadores para el circuito intermitente">
+      <p>
+        Almacenan energía y la liberan; en un circuito intermitente pueden usarse para formar una red RC que determina el periodo
+        de parpadeo o para estabilizar la alimentación.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Transistores BC547 / BC548</h4>
+      <img src="TransistorBC547.png" alt="Transistor BC547 o BC548">
+      <p>
+        Transistores NPN de propósito general para conmutar cargas pequeñas (LEDs, relés pequeños). Actúan como interruptores
+        controlados por la señal de base (por ejemplo desde una salida digital del Arduino o desde una red RC).
+      </p>
+    </div>
+
+    <div class="caja">
+      <h4>Resistencias 220 Ω y 5k/10k</h4>
+      <img src="Resistenciade220ohms.png" alt="Resistencias 220 ohms y 5k-10k">
+      <p>
+        Las resistencias de 220 Ω limitan corriente de los LEDs. Las resistencias de 5k–10k se usan como pull-down/pull-up
+        o para ajustar tiempos en combinación con condensadores.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h3>Recomendación</h3>
+      <p>
+        Para un control simple y seguro, se puede manejar los LEDs desde pines digitales del Arduino usando transistores
+        como drivers, o implementar un multivibrador externo si se desea independencia del Arduino.
+      </p>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
+</section>
+
+
+      <!-- Programación -->
+      <section id="programacion" class="panel">
+        <section id="programacion" class="contenido oculto">
+<section id="programacion">
+  <h2>PROGRAMACIÓN</h2>
+  <p>
+    Para la programación del comando usado en el Arduino Uno, se trató lo posible por incluir un código que sea sencillo para que, quien quiera realizar este proyecto no se le dificulte entender cómo hacer cambios si necesita realizarlos.
+  </p>
+
+  <div class="caja">
+    <h3>CONST INT</h3>
+    <p>
+      En Arduino se usa para declarar una variable de tipo entero (int) cuyo valor es constante y no se puede modificar durante la ejecución del programa. Es una buena práctica para definir valores fijos como el número de un pin, ya que el compilador puede detectar errores si se intenta cambiar el valor, como en el ejemplo <code>const int pinLED = 13;</code>
+    </p>
+    <img src="CONSTINT.png" alt="CONSTINT">
+  </div>
+
+  <div class="caja">
+    <h3>UMBRAL__DISTANCIA</h3>
+    <p>
+      Para usar un umbral de distancia en Arduino, debes leer la distancia de un sensor (como el ultrasónico HC-SR04) y luego usar una declaración if para comparar ese valor con tu umbral. Si la distancia está por debajo del umbral, se ejecuta una acción; si está por encima, se realiza otra acción, lo que te permite activar dispositivos o generar alertas según la proximidad.
+    </p>
+    <img src="UMBRAL__DISTANCIA.png" alt="UMBRAL__DISTANCIA">
+  </div>
+
+  <div class="caja">
+    <h3>SERIAL.BEGIN(9600)</h3>
+    <p>
+      En Arduino inicia la comunicación serial a una velocidad de 9600 bits por segundo (baudios), lo que permite enviar y recibir datos entre la placa Arduino y la computadora a través del Monitor Serial del IDE. Esta velocidad debe coincidir con la configuración del Monitor Serial para que la comunicación sea exitosa.
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>PINMODE()</h3>
+    <p>
+      En Arduino es una función que configura un pin digital como entrada o como salida. Se declara dentro de la función void setup() y se utiliza con INPUT o OUTPUT.
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>LONG</h3>
+    <p>
+      En Arduino, long es un tipo de dato entero de 32 bits (4 bytes) que puede almacenar números con signo, desde -2,147,483,648 hasta 2,147,483,647. Se utiliza para almacenar números enteros más grandes que los que puede manejar el tipo int, especialmente en placas que usan int de 16 bits, y también es útil para cálculos donde el resultado puede exceder el rango de int.
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>FLOAT</h3>
+    <p>
+      En Arduino, float es un tipo de dato que almacena números con decimales (de punto flotante), utilizando 32 bits (4 bytes) de memoria para representar valores entre aproximadamente −3.4×10³⁸ y 3.4×10³⁸. Se usa comúnmente para valores analógicos y continuos porque ofrece mayor precisión que los números enteros. Para declararlo, se utiliza <code>float nombre_variable = valor;</code>
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>DIGITALWRITE</h3>
+    <p>
+      La función <code>digitalWrite()</code> en Arduino establece un pin digital en estado HIGH (alto) o LOW (bajo). Esta función requiere dos argumentos: el número del pin y el estado deseado (HIGH o LOW), y debe usarse después de que el pin haya sido configurado como salida con la función <code>pinMode()</code>. HIGH equivale a 5V (o 3.3V en placas de 3.3V), mientras que LOW equivale a 0V.
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>DELAYMICROSECONDS</h3>
+    <p>
+      La función <code>delayMicroseconds()</code> en Arduino se utiliza para pausar la ejecución del programa durante un tiempo especificado en microsegundos. Es similar a <code>delay()</code>, pero ofrece una resolución de tiempo mucho más precisa para retardos muy cortos.
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>SERIAL.PRINT / SERIAL.PRINTLN</h3>
+    <p>
+      La función <code>Serial.print()</code> en Arduino se utiliza para enviar datos desde la placa Arduino al ordenador a través del puerto serie, y visualizarlos en el Monitor Serie del entorno de desarrollo (IDE) de Arduino.  
+      La función <code>Serial.println()</code> en Arduino se utiliza para enviar datos al ordenador a través del puerto serie y, crucialmente, añadir un salto de línea después de los datos.
+    </p>
+  </div>
+
+  <div class="caja">
+    <h3>IF / ELSE</h3>
+    <p>
+      El condicional <code>if</code> en Arduino (que es C/C++) es una estructura de control fundamental que permite que tu programa tome decisiones. Ejecuta un bloque de código específico solo si se cumple una determinada condición.  
+      El condicional <code>else</code> en Arduino (lenguaje C/C++) se utiliza siempre en combinación con la estructura <code>if</code>. Proporciona una forma de ejecutar un bloque de código alternativo cuando la condición especificada en el <code>if</code> resulta ser falsa.
+    </p>
+  </div>
+</section>
+
+
+        <button class="back-btn" onclick="goHome()">⬅ Volver</button>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>Proyecto: Carrito de Proximidad — Información completa incluida</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>   

@@ -192,6 +192,15 @@ h2 {
   color: #ccc;
 }
 
+/* 🔹 Imágenes responsivas EN TODA LA PÁGINA */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;   /* opcional, para centrar */
+  border-radius: 10px; /* opcional, se ve más bonito */
+}
+
 /* 🔹 Responsive */
 @media (max-width: 768px) {
   .nav {

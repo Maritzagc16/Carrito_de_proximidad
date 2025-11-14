@@ -1,7 +1,7 @@
 // Manejo de splash (5 segundos) + navegación entre secciones
 
 window.addEventListener('load', () => {
-  // Mostrar splash por 2 segundos (2000 ms)
+  // Mostrar splash por 3 segundos (3000 ms)
   const splash = document.getElementById('splash');
   const app = document.getElementById('app');
 
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
       // mostrar sección home
       showPanel('home');
     }
-  }, 2000);
+  }, 3000);
 });
 
 // Utilidades de navegación

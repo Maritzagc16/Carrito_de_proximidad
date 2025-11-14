@@ -60,16 +60,20 @@
            </div>
             <div class="caja"> 
               <div class="card" onclick="showSection('programacion')">
-              <h3>👩🏿‍💻 Programación</h3>
+              <h3>🧑🏻‍💻 Programación</h3>
               <p>Código Arduino, explicaciones y conceptos.</p>
             </div>
             </div>
              <div class="caja">
              <div class="card" onclick="showSection('simulacion')">
-              <h3>💡 Simulacion en Proteus</h3>
+              <h3>👾 Simulacion en Proteus</h3>
               <p>Circuito y componentes para las luces de señalización.</p>
             </div>
            </div>
+            <div class="caja">
+             <div class="card" onclick="showSection('Instrucciones')">
+              <h3>📋 Instrucciones de armado</h3>
+            </div>
           </div>
         </div>
 
@@ -336,7 +340,7 @@ El condicional else en Arduino (lenguaje C/C++)(lenguaje de comunicación) se ut
 
 <!-- Simulación en Proteus -->
 <section id="simulacion" class="panel">
-  <h2>🔬 Simulación en Proteus</h2>
+  <h2>👾 Simulación en Proteus</h2>
 
   <div class="caja">
     <h3>Descripción general</h3>
@@ -375,6 +379,86 @@ El condicional else en Arduino (lenguaje C/C++)(lenguaje de comunicación) se ut
   </div>
   
 
+
+  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
+</section>
+
+<section id="Instrucciones" class="panel">
+  <h2>🧨 Instrucciones</h2>
+
+  <div class="caja">
+    <h3>Paso 1</h3>
+    <p>
+Soldadura de los motores
+    </p>
+    <img src="Paso1.png" alt="CONSTINT">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 2</h3>
+    <p>
+Instalación de rueda loca a la base de acrílico
+</p>
+    <img src="Paso2.png" alt="UMBRAL__DISTANCIA">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 3</h3>
+    <p>
+Se pegan los motores a la base de acrílico    </p>
+    <img src="Paso3.png" alt="SERIAL.BEGIN(9600)">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 4</h3>
+    <p>
+Colocar el modulo  de puente H (L293D) a la base de acrílico   </p>
+    <img src="Paso4.png" alt="PINMODE">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 5</h3>
+    <p>
+Instalación de las llantas </p>
+    <img src="Paso5.png" alt="LONG">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 6</h3>
+    <p>
+Se conectan los pines de cada motor (A y B)    </p>
+    <img src="Paso6.png" alt="FLOAT">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 7</h3>
+    <p>
+Insertamos el Arduino Uno a la placa de acrílico </p>
+    <img src="Paso7.png" alt="DIGITALWRITE">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 8</h3>
+    <p>
+Instalación de cables a los pines predestinados en la programación de Arduino    </p>
+    <img src="Paso8.png" alt="DELAYMICROSECONDS">
+  </div>
+
+  <div class="caja">
+    <h3>Paso 9</h3>
+    <p>
+Se instala el sensor ultrasónico al Arduino y al carrito     </p>
+    <img src="Paso9.png" alt="SERIAL.PRINT / SERIAL.PRINTLN">
+
+  </div>
+
+   <div class="caja">
+    <h3>Paso 10</h3>
+    <p>
+Por último, la batería se coloca al Arduino y empieza su función    </p>
+    <img src="Paso10.png" alt="SERIAL.PRINT / SERIAL.PRINTLN">
+  </div>
+  
 
   <button class="back-btn" onclick="goHome()">⬅ Volver</button>
 </section>
